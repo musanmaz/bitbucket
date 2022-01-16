@@ -5,7 +5,7 @@
 # If first CMD argument is 'bitbucket', then the script will start bitbucket
 # If CMD argument is overriden and not 'bitbucket', then the user wants to run
 # his own process.
-export JAVA_HOME='/opt/java/openjdk'
+export JAVA_HOME='/usr/lib/jvm/java-1.8-openjdk'
 set -e
 
 [[ ${DEBUG} == true ]] && set -x
@@ -89,6 +89,7 @@ if [ -d /var/atlassian/bitbucket/ssh ]; then
   chmod -R 700 /home/bitbucket/.ssh
 fi
 if [ "$1" = 'bitbucket' ] || [ "${1:0:1}" = '-' ]; then
+  export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
   source /usr/bin/dockerwait
   umask 0027
   if [ "${bitbucket_embedded_search}" = 'true' ]; then
