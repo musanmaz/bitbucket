@@ -1,6 +1,6 @@
 FROM openjdk:8-alpine
 
-ARG BITBUCKET_VERSION=7.17.1
+ARG BITBUCKET_VERSION=7.19.3
 # permissions
 ARG CONTAINER_UID=1000
 ARG CONTAINER_GID=1000
@@ -71,10 +71,19 @@ RUN export MYSQL_DRIVER_VERSION=5.1.48 && \
 
 COPY 300700000 /tmp/bitbucket-backup-distribution.zip 
 
+
+
 RUN mkdir -p ${BITBUCKET_BACKUP_CLIENT_HOME} && \
+    wget -O /tmp/bitbucket-backup-distribution.zip \
+      https://marketplace.atlassian.com/download/plugins/com.atlassian.stash.backup.client/version/${BITBUCKET_BACKUP_CLIENT_VERSION} && \
     unzip -d ${BITBUCKET_BACKUP_CLIENT_HOME} /tmp/bitbucket-backup-distribution.zip && \
     mv /opt/backupclient/$(ls /opt/backupclient/) /opt/backupclient/bitbucket-backup-client && \
     chown -R bitbucket:bitbucket ${BITBUCKET_BACKUP_CLIENT_HOME}
+
+#RUN mkdir -p ${BITBUCKET_BACKUP_CLIENT_HOME} && \
+#    unzip -d ${BITBUCKET_BACKUP_CLIENT_HOME} /tmp/bitbucket-backup-distribution.zip && \
+#    mv /opt/backupclient/$(ls /opt/backupclient/) /opt/backupclient/bitbucket-backup-client && \
+#    chown -R bitbucket:bitbucket ${BITBUCKET_BACKUP_CLIENT_HOME}
 
 # Remove obsolete packages
 RUN apk del \
