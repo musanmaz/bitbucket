@@ -100,7 +100,7 @@ RUN apk del \
     rm -rf /var/log/*
 
 COPY set-jre-home.sh /opt/bitbucket/bin/
-RUN chown 1000:1000 set-jre-home.sh
+RUN chown 1000:1000 /opt/bitbucket/bin/set-jre-home.sh 
 USER bitbucket
 WORKDIR /var/atlassian/bitbucket
 VOLUME ["/var/atlassian/bitbucket"]
