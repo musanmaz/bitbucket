@@ -28,6 +28,6 @@ function dockerWait {
     dockerPoll
   fi
 }
-
+export JAVA_HOME="/opt/java/openjdk"
 dockerWaitInit
 dockerWait

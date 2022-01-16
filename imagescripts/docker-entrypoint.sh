@@ -88,7 +88,6 @@ if [ -d /var/atlassian/bitbucket/ssh ]; then
   cp -R /var/atlassian/bitbucket/ssh/* /home/bitbucket/.ssh
   chmod -R 700 /home/bitbucket/.ssh
 fi
-
 if [ "$1" = 'bitbucket' ] || [ "${1:0:1}" = '-' ]; then
   source /usr/bin/dockerwait
   umask 0027

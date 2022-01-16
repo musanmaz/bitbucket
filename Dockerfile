@@ -1,5 +1,4 @@
-FROM adoptopenjdk/openjdk8:alpine
-MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
+FROM openjdk:8-alpine
 
 ARG BITBUCKET_VERSION=7.17.1
 # permissions
@@ -70,9 +69,9 @@ RUN export MYSQL_DRIVER_VERSION=5.1.48 && \
     chown -R bitbucket:bitbucket ${BITBUCKET_HOME} && \
     chown -R bitbucket:bitbucket ${BITBUCKET_INSTALL}
 
+COPY 300700000 /tmp/bitbucket-backup-distribution.zip 
+
 RUN mkdir -p ${BITBUCKET_BACKUP_CLIENT_HOME} && \
-    wget -O /tmp/bitbucket-backup-distribution.zip \
-      https://marketplace.atlassian.com/download/plugins/com.atlassian.stash.backup.client/version/${BITBUCKET_BACKUP_CLIENT_VERSION} && \
     unzip -d ${BITBUCKET_BACKUP_CLIENT_HOME} /tmp/bitbucket-backup-distribution.zip && \
     mv /opt/backupclient/$(ls /opt/backupclient/) /opt/backupclient/bitbucket-backup-client && \
     chown -R bitbucket:bitbucket ${BITBUCKET_BACKUP_CLIENT_HOME}
