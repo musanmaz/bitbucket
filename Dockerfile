@@ -69,7 +69,7 @@ RUN export MYSQL_DRIVER_VERSION=5.1.48 && \
     chown -R bitbucket:bitbucket ${BITBUCKET_HOME} && \
     chown -R bitbucket:bitbucket ${BITBUCKET_INSTALL}
 
-COPY 300700000 /tmp/bitbucket-backup-distribution.zip 
+#COPY 300700000 /tmp/bitbucket-backup-distribution.zip 
 
 
 
