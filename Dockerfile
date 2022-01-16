@@ -16,7 +16,8 @@ ENV BITBUCKET_HOME=/var/atlassian/bitbucket \
     JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk \
     PATH=/usr/lib/jvm/java-1.8-openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
 
-RUN export MYSQL_DRIVER_VERSION=5.1.48 && \
+RUN export JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk && \
+    export MYSQL_DRIVER_VERSION=5.1.48 && \
     export CONTAINER_USER=bitbucket &&  \
     export CONTAINER_GROUP=bitbucket &&  \
     addgroup --gid $CONTAINER_GID $CONTAINER_GROUP &&  \
