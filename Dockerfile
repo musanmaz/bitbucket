@@ -13,8 +13,8 @@ ENV BITBUCKET_HOME=/var/atlassian/bitbucket \
     BITBUCKET_BACKUP_CLIENT=/opt/backupclient/bitbucket-backup-client \
     BITBUCKET_BACKUP_CLIENT_HOME=/opt/backupclient \
     BITBUCKET_BACKUP_CLIENT_VERSION=300800000 \
-    JAVA_HOME=/opt/java/openjdk \
-    PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
+    JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk \
+    PATH=/usr/lib/jvm/java-1.8-openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin 
 
 RUN export MYSQL_DRIVER_VERSION=5.1.48 && \
     export CONTAINER_USER=bitbucket &&  \
