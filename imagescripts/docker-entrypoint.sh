@@ -5,7 +5,7 @@
 # If first CMD argument is 'bitbucket', then the script will start bitbucket
 # If CMD argument is overriden and not 'bitbucket', then the user wants to run
 # his own process.
-
+export JAVA_HOME='/opt/java/openjdk'
 set -e
 
 [[ ${DEBUG} == true ]] && set -x
